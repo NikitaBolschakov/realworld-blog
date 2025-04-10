@@ -5,7 +5,19 @@ const BASE_URL = 'https://blog-platform.kata.academy/api';
 
 export const articlesApi = createApi({
   reducerPath: 'articlesApi', //  ключ, под которым будет храниться состояние в Redux store
-  baseQuery: fetchBaseQuery({ baseUrl: BASE_URL }),
+  baseQuery: fetchBaseQuery({
+    baseUrl: BASE_URL,
+    // Добавление заголовков к запросам, включая токен авторизации
+    // который хранится в localStorage при аутентификации пользователя
+    prepareHeaders: (headers) => { 
+      const token = JSON.parse(localStorage.getItem('user'))?.token; // Получаем токен из localStorage
+      // Если токен существует, добавляем его в заголовок Authorization
+      if (token) {
+        headers.set('Authorization', `Bearer ${token}`);
+      }
+      return headers;
+    },
+  }),
   endpoints: (builder) => ({
     // Получение списка статей с пагинацией
     getArticles: builder.query({
@@ -25,7 +37,7 @@ export const articlesApi = createApi({
         body: { user: { ...userData, image: '' } },
       }),
     }),
-
+    // Логин пользователя, используется для входа в систему
     loginUser: builder.mutation({
       query: (loginData) => ({
         url: 'users/login',
@@ -33,9 +45,27 @@ export const articlesApi = createApi({
         body: { user: loginData },
       }),
     }),
+    // Получение данных текущего пользователя
+    getUser: builder.query({
+      query: () => 'user',
+    }),
+    // Обновление данных текущего пользователя
+    updateUser: builder.mutation({
+      query: (userData) => ({
+        url: 'user',
+        method: 'PUT',
+        body: { user: userData },
+      }),
+    }),
   }),
 });
 
 // хуки для использования в компонентах
-export const { useGetArticlesQuery, useGetArticleBySlugQuery, useCreateUserMutation, useLoginUserMutation } =
-  articlesApi;
+export const {
+  useGetArticlesQuery,
+  useGetArticleBySlugQuery,
+  useCreateUserMutation,
+  useLoginUserMutation,
+  useGetUserQuery,
+  useUpdateUserMutation,
+} = articlesApi;
