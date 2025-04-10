@@ -1,16 +1,79 @@
 .header {
   display: flex;
   height: 80px;
+  justify-content: space-between;
+  align-items: center;
   background-color: #fff;
+  padding: 0 15px;
 }
 
-.logo {
+.header a {
+  text-decoration: none;
+  color: rgb(50, 50, 50);
+}
+
+.button {
+  width: 109px;
+  height: 40px;
+  margin-left: 15px;
+  background: none;
+  border: none;
+  font-size: 16px;
+}
+
+.signUp {
+  border: 1px solid #52c41a;
+  border-radius: 5px;
+  color: #52c41a;
+}
+
+.log-out {
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.button:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.create-article {
+  border: 1px solid #52c41a;
+  border-radius: 5px;
+  color: #52c41a;
+  width: 109px;
+  height: 40px;
+  margin-right: 20px;
+  font-size: 14px;
+  padding: 0;
+}
+
+.username {
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.username:hover {
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+.image {
+  width: 46px;
+  height: 46px;
+  padding: 0;
+  margin: 0;
+}
+
+.profile {
   display: flex;
+  justify-content: center;
   align-items: center;
-  font-weight: 400;
-  font-size: 18px;
-  line-height: 28px;
-  letter-spacing: 0%;
-  vertical-align: middle;
-  padding-left: 22px;
+}
+
+.homeBtn {
+  background: none;
+  padding: 0;
+  border: none;
+  cursor: pointer;
 }
