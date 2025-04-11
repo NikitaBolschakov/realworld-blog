@@ -37,6 +37,7 @@ export const articlesApi = createApi({
         body: { user: { ...userData, image: '' } },
       }),
     }),
+
     // Логин пользователя, используется для входа в систему
     loginUser: builder.mutation({
       query: (loginData) => ({
@@ -45,16 +46,27 @@ export const articlesApi = createApi({
         body: { user: loginData },
       }),
     }),
+
     // Получение данных текущего пользователя
     getUser: builder.query({
       query: () => 'user',
     }),
+
     // Обновление данных текущего пользователя
     updateUser: builder.mutation({
       query: (userData) => ({
         url: 'user',
         method: 'PUT',
         body: { user: userData },
+      }),
+    }),
+
+    // Создание новой статьи
+    createArticle: builder.mutation({
+      query: (articleData) => ({
+        url: 'articles',
+        method: 'POST',
+        body: { article: articleData },
       }),
     }),
   }),
@@ -68,4 +80,5 @@ export const {
   useLoginUserMutation,
   useGetUserQuery,
   useUpdateUserMutation,
+  useCreateArticleMutation,
 } = articlesApi;

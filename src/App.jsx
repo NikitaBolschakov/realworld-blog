@@ -9,6 +9,7 @@ import ArticlePage from './components/pages/ArticlePage/ArticlePage';
 import RegisterPage from './components/pages/RegisterPage/RegisterPage.jsx';
 import LoginPage from './components/pages/LoginPage/LoginPage.jsx';
 import ProfilePage from './components/pages/ProfilePage/ProfilePage.jsx';
+import NewArticle from './components/pages/NewArticle/NewArticle.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
 import Header from './components/Header/Header.jsx';
 import styles from './App.module.scss';
@@ -38,6 +39,14 @@ function App() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated} user={user}>
               <ProfilePage />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/new-article"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated} user={user}>
+              <NewArticle />
             </PrivateRoute>
           }
         />
