@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { Pagination, Alert, Spin } from 'antd';
-import { useGetArticlesQuery } from '../../../api/articlesApi'; // Импортируем хук для получения статей
-import ArticleCard from '../../../features/articles/ArticleCard';
+import { useGetArticlesQuery } from '../../../api/articlesApi'; 
+import ArticleCard from '../../ArticleCard/ArticleCard'; 
 import styles from './ArticlesListPage.module.scss';
+import Loader from '../../Loader/Loader';
 
 export default function ArticlesListPage() {
   const [currentPage, setCurrentPage] = useState(1); // Состояние для текущей страницы пагинации
@@ -13,8 +14,6 @@ export default function ArticlesListPage() {
     limit, // Параметры для запроса: лимит статей на странице
     offset: (currentPage - 1) * limit  // Параметры для запроса: лимит и смещение (offset) для пагинации
   }); 
-  console.log(data, 'data');
-  
 
   // Функция для обработки изменения страницы
   const handlePageChange = (page) => {
@@ -23,11 +22,7 @@ export default function ArticlesListPage() {
     }
   };
 
-  if (isLoading) return (
-    <div className={styles.loadingOverlay}>
-      <Spin size="large" />
-    </div>
-  );
+  if (isLoading) return <Loader />;
 
   if (isError) return (
     <div className={styles.articlesList}>

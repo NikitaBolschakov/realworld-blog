@@ -2,17 +2,17 @@ import { useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
 import { Spin, message } from 'antd';
 import { useParams } from 'react-router-dom';
-import { useGetArticlesQuery } from '../../api/articlesApi';
+import { useGetArticleBySlugQuery } from '../../api/articlesApi';
 
 const PrivateRoute = ({ children, isAuthenticated, user }) => {
   const { slug } = useParams(); // Получаем slug из URL
 
-  const { data: articleData, isLoading } = useGetArticlesQuery(slug, {
+  const { data: articleData, isLoading } = useGetArticleBySlugQuery(slug, {
     skip: !slug, // Пропускаем запрос, если slug отсутствует
   });
 
   // Проверяем, является ли текущий пользователь автором статьи
-  const isAuthor = articleData?.article.author.username === user?.username;
+  const isAuthor = articleData?.article.author.username === user?.username;  
 
   // Проверяем, авторизован ли пользователь и загружены ли данные
   useEffect(() => {

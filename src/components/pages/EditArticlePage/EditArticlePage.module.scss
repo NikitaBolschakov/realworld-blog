@@ -1,0 +1,24 @@
+.editArticle {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  align-items: center;
+  border: 1px solid #fff;
+  box-shadow: 0px 4px 12px 0px #00000026;
+}
+
+.editArticleCard {
+  margin-top: 16px;
+  margin-bottom: 16px;
+  width: 900px;
+  align-self: flex-start;
+}
+
+.editArticleTag {
+  width: 300px;
+  margin-right: 16px;
+}
+
+.tagRow {
+  margin-bottom: 5px;
+}

@@ -91,7 +91,7 @@ const NewArticle = () => {
                   value={tag}
                   onChange={(e) => handleTagChange(index, e.target.value)}
                 />
-                <Button danger onClick={() => removeTag(index)}>
+                <Button danger onClick={() => removeTag(index)} disabled={tagList.length <= 1}>
                   Delete
                 </Button>
               </div>

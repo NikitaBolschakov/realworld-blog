@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useGetUserQuery, useUpdateUserMutation } from '../../../api/articlesApi';
 import { setUser, selectUser } from '../../../store/slices/userSlice';
 import styles from './profilePage.module.scss';
+import Loader from '../../Loader/Loader';
 
 const { Title } = Typography;
 
@@ -23,7 +24,7 @@ const Profile = () => {
   }, [userData, dispatch]);
 
   if (isLoading) {
-    return <Spin />;
+    return <Loader />;
   }
 
   if (error) {

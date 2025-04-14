@@ -29,7 +29,7 @@ export const articlesApi = createApi({
       query: (slug) => `/articles/${slug}`,
     }),
 
-    // Создание нового пользователя, используется для регистрации нового пользователя
+    // Создание нового пользователя
     createUser: builder.mutation({
       query: (userData) => ({
         url: 'users',
@@ -69,10 +69,37 @@ export const articlesApi = createApi({
         body: { article: articleData },
       }),
     }),
+
+    // Удаление статьи по slug
+    deleteArticle: builder.mutation({
+      query: (slug) => ({
+        url: `articles/${slug}`,
+        method: 'DELETE',
+      }),
+    }),
+
+    // Обновление существующей статьи
+    updateArticle: builder.mutation({
+      query: ({ slug, articleData }) => ({
+        url: `articles/${slug}`,
+        method: 'PUT',
+        body: { article: articleData },
+      }),
+    }),
+
+    // Добавление/удаление статьи в избранное
+    likeArticle: builder.mutation({
+      query: ({ slug, method }) => ({
+        url: `articles/${slug}/favorite`,
+        method,
+        body: {},
+      }),
+    }),
   }),
 });
 
 // хуки для использования в компонентах
+// хуки автоматически создаются на основе определенных эндпоинтов
 export const {
   useGetArticlesQuery,
   useGetArticleBySlugQuery,
@@ -81,4 +108,7 @@ export const {
   useGetUserQuery,
   useUpdateUserMutation,
   useCreateArticleMutation,
+  useDeleteArticleMutation,
+  useUpdateArticleMutation,
+  useLikeArticleMutation,
 } = articlesApi;

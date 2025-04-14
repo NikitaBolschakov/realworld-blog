@@ -1,9 +1,10 @@
 import { useEffect } from 'react';
 import { useGetArticleBySlugQuery } from '../../../api/articlesApi';
-import { Alert, Spin } from 'antd';
+import { Alert } from 'antd';
 import { useParams } from 'react-router-dom';
-import ArticleCard from '../../../features/articles/ArticleCard';
+import ArticleCard from '../../ArticleCard/ArticleCard';
 import styles from './ArticlePage.module.scss';
+import Loader from '../../Loader/Loader';
 
 const ArticlePage = () => {
   const { slug } = useParams(); // Получаем slug из URL
@@ -16,7 +17,7 @@ const ArticlePage = () => {
     }
   }, [slug, refetch]);
 
-  if (isLoading) return <Spin size="large" className={styles.loadingOverlay} />
+  if (isLoading) return <Loader />
   if (error) return <Alert message="Ошибка при загрузке статьи" type="error" />;
 
   return (

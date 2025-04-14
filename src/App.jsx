@@ -11,6 +11,7 @@ import LoginPage from './components/pages/LoginPage/LoginPage.jsx';
 import ProfilePage from './components/pages/ProfilePage/ProfilePage.jsx';
 import NewArticle from './components/pages/NewArticle/NewArticle.jsx';
 import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
+import EditArticlePage from './components/pages/EditArticlePage/EditArticlePage.jsx';
 import Header from './components/Header/Header.jsx';
 import styles from './App.module.scss';
 
@@ -47,6 +48,14 @@ function App() {
           element={
             <PrivateRoute isAuthenticated={isAuthenticated} user={user}>
               <NewArticle />
+            </PrivateRoute>
+          }
+        />
+        <Route
+          path="/articles/:slug/edit"
+          element={
+            <PrivateRoute isAuthenticated={isAuthenticated} user={user}>
+              <EditArticlePage />
             </PrivateRoute>
           }
         />
