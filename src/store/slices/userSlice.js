@@ -1,13 +1,13 @@
 // Redux Toolkit Slice для управления состоянием пользователя и аутентификации в приложении
-import { createSlice } from '@reduxjs/toolkit'; 
+import { createSlice } from '@reduxjs/toolkit';
 
-const initialState = { 
-  user: null, 
+const initialState = {
+  user: null,
 };
 
 const userSlice = createSlice({
-  name: 'user', 
-  initialState, 
+  name: 'user',
+  initialState,
   reducers: {
     // Устанавливаем пользователя в состояние и сохраняем его в localStorage
     setUser: (state, action) => {
@@ -29,8 +29,7 @@ const userSlice = createSlice({
   },
 });
 
-
-export const { setUser, clearUser, initializeUser } = userSlice.actions; // экспортируем действия 
+export const { setUser, clearUser, initializeUser } = userSlice.actions; // экспортируем действия
 export const selectUser = (state) => state.user.user; // селектор для получения пользователя из состояния
 export const selectIsAuthenticated = (state) => state.user.isAuthenticated; // селектор для проверки аутентификации пользователя
 

@@ -6,10 +6,10 @@ import { useLoginUserMutation } from '../../../api/articlesApi';
 import { setUser, selectUser } from '../../../store/slices/userSlice';
 import styles from './loginPage.module.scss';
 
-const { Title, Text } = Typography;  
- 
+const { Title, Text } = Typography;
+
 const LoginPage = () => {
-  const dispatch = useDispatch(); 
+  const dispatch = useDispatch();
   const [loginUser, { isLoading }] = useLoginUserMutation();
   const navigate = useNavigate();
   const [form] = Form.useForm();
@@ -37,7 +37,7 @@ const LoginPage = () => {
 
   return (
     <div className={styles.login}>
-      <Card className={styles.loginCard} >
+      <Card className={styles.loginCard}>
         <Title level={3} className={styles.loginTitle}>
           Sign In
         </Title>

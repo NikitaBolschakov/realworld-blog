@@ -1,18 +1,18 @@
 import { Route, Routes } from 'react-router-dom';
 import { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { initializeUser } from './store/slices/userSlice';
-import { useGetArticlesQuery } from './api/articlesApi';
+import { initializeUser } from '../../store/slices/userSlice.js';
+import { useGetArticlesQuery } from '../../api/articlesApi.js';
 
-import ArticlesListPage from './components/pages/ArticleListPage/ArticlesListPage.jsx';
-import ArticlePage from './components/pages/ArticlePage/ArticlePage';
-import RegisterPage from './components/pages/RegisterPage/RegisterPage.jsx';
-import LoginPage from './components/pages/LoginPage/LoginPage.jsx';
-import ProfilePage from './components/pages/ProfilePage/ProfilePage.jsx';
-import NewArticle from './components/pages/NewArticle/NewArticle.jsx';
-import PrivateRoute from './components/PrivateRoute/PrivateRoute.jsx';
-import EditArticlePage from './components/pages/EditArticlePage/EditArticlePage.jsx';
-import Header from './components/Header/Header.jsx';
+import ArticlesListPage from '../pages/ArticleListPage/ArticlesListPage.jsx';
+import ArticlePage from '../pages/ArticlePage/ArticlePage.jsx';
+import RegisterPage from '../pages/RegisterPage/RegisterPage.jsx';
+import LoginPage from '../pages/LoginPage/LoginPage.jsx';
+import ProfilePage from '../pages/ProfilePage/ProfilePage.jsx';
+import NewArticle from '../pages/NewArticle/NewArticle.jsx';
+import PrivateRoute from '../PrivateRoute/PrivateRoute.jsx';
+import EditArticlePage from '../pages/EditArticlePage/EditArticlePage.jsx';
+import Header from '../Header/Header.jsx';
 import styles from './App.module.scss';
 
 function App() {

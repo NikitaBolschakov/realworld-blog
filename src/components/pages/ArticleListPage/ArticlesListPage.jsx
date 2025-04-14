@@ -23,7 +23,6 @@ export default function ArticlesListPage() {
   };
 
   if (isLoading) return <Loader />;
-
   if (isError) return (
     <div className={styles.articlesList}>
       <Alert 

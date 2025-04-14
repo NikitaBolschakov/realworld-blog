@@ -12,19 +12,19 @@ const PrivateRoute = ({ children, isAuthenticated, user }) => {
   });
 
   // Проверяем, является ли текущий пользователь автором статьи
-  const isAuthor = articleData?.article.author.username === user?.username;  
+  const isAuthor = articleData?.article.author.username === user?.username;
 
   // Проверяем, авторизован ли пользователь и загружены ли данные
   useEffect(() => {
     if (!isAuthenticated && !isLoading) {
-      message.warning('You need to be logged in to access this page.'); 
+      message.warning('You need to be logged in to access this page.');
     } else if (isAuthenticated && articleData && !isAuthor) {
       message.error('You do not have permission to edit this article.');
     }
   }, [isAuthenticated, isAuthor, articleData, isLoading]);
 
   if (isLoading) {
-    return <Spin size="large"/>
+    return <Spin size="large" />;
   }
 
   // Если пользователь не авторизован, перенаправляем на страницу входа

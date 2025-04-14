@@ -9,7 +9,7 @@ export const articlesApi = createApi({
     baseUrl: BASE_URL,
     // Добавление заголовков к запросам, включая токен авторизации
     // который хранится в localStorage при аутентификации пользователя
-    prepareHeaders: (headers) => { 
+    prepareHeaders: (headers) => {
       const token = JSON.parse(localStorage.getItem('user'))?.token; // Получаем токен из localStorage
       // Если токен существует, добавляем его в заголовок Authorization
       if (token) {

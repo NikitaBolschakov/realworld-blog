@@ -7,6 +7,6 @@ const Loader = () => {
       <Spin size="large" />
     </div>
   );
-}
+};
 
 export default Loader;

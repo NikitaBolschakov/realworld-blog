@@ -39,7 +39,6 @@ const NewArticle = () => {
     console.log('Failed:', errorInfo);
   };
 
-
   // Функция для обработки изменения тегов
   // Обновляет состояние тегов при изменении значения в поле ввода
   const handleTagChange = (index, value) => {

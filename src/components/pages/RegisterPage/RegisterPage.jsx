@@ -8,15 +8,14 @@ import styles from './RegisterPage.module.scss';
 const { Title, Text } = Typography;
 
 const Register = () => {
-  const [createUser, { isLoading }] = useCreateUserMutation(); 
-  const dispatch = useDispatch();  
+  const [createUser, { isLoading }] = useCreateUserMutation();
+  const dispatch = useDispatch();
   const navigate = useNavigate();
-  const [form] = Form.useForm();  
+  const [form] = Form.useForm();
 
-  
   const onFinish = async (values) => {
     try {
-      const { username, email, password } = values;  
+      const { username, email, password } = values;
       const result = await createUser({ username, email, password }).unwrap();
       message.success('Registration successful!');
       dispatch(setUser(result.user));

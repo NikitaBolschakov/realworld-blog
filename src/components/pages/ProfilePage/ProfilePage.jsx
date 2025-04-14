@@ -18,7 +18,8 @@ const Profile = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (userData?.user) {  // Проверяем, есть ли данные пользователя
+    if (userData?.user) {
+      // Проверяем, есть ли данные пользователя
       dispatch(setUser(userData.user));
     }
   }, [userData, dispatch]);
