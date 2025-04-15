@@ -4,7 +4,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 import { useLoginUserMutation } from '../../../api/articlesApi';
 import { setUser, selectUser } from '../../../store/slices/userSlice';
-import styles from './loginPage.module.scss';
+import styles from './LoginPage.module.scss';
 
 const { Title, Text } = Typography;
 
